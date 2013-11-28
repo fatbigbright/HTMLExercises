@@ -1,0 +1,37 @@
+#all
+{
+    background: #FEF6E8;
+}
+
+#header
+{
+    background: #EDE5D7;
+    padding-left: 10px;
+}
+#main
+{
+    background: #DCD6B4;
+    float: right;
+    width: 83%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+#side
+{
+    background: #CBE8A3;
+    margin-right: 85%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+#footer
+{
+    background: #BAB675;
+    padding-left: 10px;
+    clear: both;
+}
+a:hover, a:active, a:focus
+{
+    background: #233432;
+}

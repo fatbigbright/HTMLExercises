@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20131017</title>
+    <style type="text/css">
+        @keyframes anima
+        {
+            0% { background: Aqua; left: 0px; top: 0px; }
+            25% { background: Blue; left: 100px; top: 50px; }
+            50% { background: Purple; left: 50px; top: 150px; }
+            75% { background: Red; left: 25px; top 100px; }
+            100% { background: Aqua; left: 0px; top: 0px; }
+        }
+        @-webkit-keyframes anima
+        {
+            0% { background: Aqua; left: 0px; top: 0px; }
+            25% { background: Blue; left: 100px; top: 50px; }
+            50% { background: Purple; left: 50px; top: 150px; }
+            75% { background: Red; left: 25px; top 100px; }
+            100% { background: Aqua; left: 0px; top: 0px; }
+        }
+        .animation
+        {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            background: Aqua;
+            /* border: solid 5px black; */
+            border-radius: 20px;
+            word-wrap: break-word;
+            box-shadow: 10px 5px 3px black;
+            animation: anima 5s linear 0.5s infinite alternate;
+            -webkit-animation: anima 5s linear 0.5s infinite alternate;
+        }
+        .animation p
+        {
+            padding: 10px 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+	<h1>20131017</h1>
+    <div class="animation">
+        <p>Demo for CSS3 animation.</p>
+    </div>
+</body>
+</html>

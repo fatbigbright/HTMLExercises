@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20130927</title>
+    <style type="text/css">
+        #ol2 li
+        {
+            list-style-type: upper-roman;
+        }
+        #ol3 li
+        {
+            list-style-type: lower-roman;
+        }
+        #ul1 li.sub1
+        {
+            list-style: circle inside;
+        }
+        #ul1 li.sub2
+        {
+            list-style: square inside;
+        }
+        dt
+        {
+            font-weight: bold;
+        }
+        dd.detail
+        {
+            font-style: italic;
+        }
+        #nested_ol
+        {
+            background: Aqua;
+            width: 300px;
+            border: solid #349823;
+        }
+        #nested_ol li
+        {
+            list-style-type: upper-roman; 
+        }
+        #nested_ol ol li
+        {
+            list-style-type: upper-alpha;
+        }
+        #nested_ol ol ol li
+        {
+            list-style-type: decimal;
+        }
+    </style>
+</head>
+<body>
+	<h1>20130927</h1>
+    <p>Demo for Ordered List &amp; Unordered List.</p>
+    <ol id="ol1" start="100">
+    	<li>First Item</li>
+    	<li value="200">Second Item</li>
+    	<li>Third Item</li>
+    </ol>
+    <ol id="ol2">
+    	<li>First Item</li>
+    	<li>Second Item</li>
+    	<li>Third Item</li>
+    </ol>
+    <ol id="ol3">
+    	<li>First Item</li>
+    	<li>Second Item</li>
+    	<li>Third Item</li>
+    </ol>
+    <ul id="ul1">
+    	<li>An Item with default list-style disc.</li>
+        <li class="sub1">Sub Item with list-style circle.</li>
+    	<li>Another Item</li>
+    	<li>One another Item</li>
+        <li class="sub2">Another Sub Item with list-style square.</li>
+    </ul>
+    <p>The following list is definition list.</p>
+    <dl>
+    	<dt>Optimus Prime</dt>
+    	<dd class="detail">Leader of the Autobots</dd>
+        <dt>Megatron</dt>
+        <dd class="detail">Leader of the Deceptcons</dd>
+    </dl>
+    <p>The following list is a nested list.</p>
+    <ol id="nested_ol">
+    	<li>Autobots
+            <ol>
+            	<li>Optimus Prime</li>
+            	<li>BumbleBee</li>
+            </ol>
+        </li>
+    	<li>Deceptcons
+            <ol>
+            	<li>Megatron</li>
+            	<li>SoundWave
+                    <ol>
+                    	<li>LaserBeak</li>
+                    	<li>Ravage</li>
+                    </ol>
+                </li>
+            	<li>Starscream</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>

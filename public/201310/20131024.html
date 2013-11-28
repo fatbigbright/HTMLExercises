@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131024</title>
+    <style type="text/css">
+        #login
+        {
+            width: 400px;
+            height: 100px;
+            background: Aqua;
+            border-radius: 8px;
+            font-family: "Monaco";
+            border: 2px outset gray;
+        }
+        #login-title
+        {
+            width: 50px;
+            background: #8888ff;
+            border: 2px outset gray;
+        }
+        #login label
+        {
+            position: absolute;
+            left: 20px;
+        }
+        #user-name, #password 
+        {
+            margin-left: 100px;
+        }
+        input[type="button"]
+        {
+            border-radius: 5px;
+            font-size: 14px;
+            position: absolute;
+            width: 80px;
+        }
+        #confirm-login
+        {
+            left: 40px;
+        }
+        #cancel-login
+        {
+            left: 160px;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131024</h1>
+    <p>A login layout Demo</p>
+    <fieldset id="login">
+        <legend id="login-title">Login</legend>
+        <label id="user-name-title" for="">User Name: </label>
+        <input id="user-name" type="text" /><br />
+        <label id="password-title" for="">Password: </label>
+        <input id="password" type="password" /> <br />
+        <input id="confirm-login" type="button" value="Confirm" />
+        <input id="cancel-login" type="button" value="Cancel" />
+    </fieldset>
+</body>
+</html>

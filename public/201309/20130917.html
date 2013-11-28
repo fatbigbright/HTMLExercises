@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20130917</title>
+    <style type="text/css">
+        h1
+        {
+            color:red;
+        }
+        h1 em
+        {
+            color:blue;
+        }
+        em.very
+        {
+            color:grey;
+        }
+        div#gaudi
+        {
+            color:Fuchsia;
+            font-family:Monaco;
+            font-size:50px;
+        }
+        div#gaudi p
+        {
+            color:Maroon;
+            font-family:Dejavu;
+            font-size:30px;
+        }
+        div#gaudi p:first-child
+        {
+            color:Aqua;
+            font-family:FreeMono;
+            font-size:40px;
+            font-weight:bold;
+        }
+        div#gaudi p+p
+        {
+            color:Green;
+            font-family:FreeSans;
+            font-size:80px;
+        }
+        div#gaudi p:first-line
+        {
+            color:Olive;
+            font-weight:bold;
+            font-size:30px;
+        }
+        div#gaudi p:first-letter
+        {
+            color:Black;
+            font-weight:900;
+            font-size:60px;
+        }
+    </style>
+</head>
+<body>
+	<h1>20130917</h1>
+    <h1>Test for h1, test for <em>&lt;em&gt;</em>, and test for <em class="very">em.very</em>.</h1>
+    <p>Resize window of the browser to be smaller, you can find all the first line of the paragraphs in div#gaudi is rendered by selector "div#gaudi p:first-line". You can also find first letter of the paragraphs in div#gaudi is rendered by selector "div#gaudi p:first-letter".</p>
+    <div id="gaudi">Test for div#gaudi.
+        <p>Test for "div#gaudi p". Specified by "div#gaudi p:first-child".</p>
+        <hr />
+        <p>Test for second "div#gaudi p".</p>
+        <hr />
+        <p>Test for third "div#gaudi p".</p>
+        <p>Test for fourth "div#gaudi p+p", only &lt;p&gt; that is just next to a previous &lt;p&gt; will be rendered as this selector.</p>
+    </div>
+</body>
+</html>

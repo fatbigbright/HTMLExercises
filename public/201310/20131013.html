@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131013</title>
+    <style type="text/css">
+        .circle
+        {
+            position: relative;
+            margin-top: 50px;
+            background: Purple;
+            width: 200px;
+            height: 200px;
+            border-width: 100px;
+            border-radius: 100px;
+                     /* x-offset-length y-offset-length blur-length color*/
+            box-shadow: 10px            5px             8px         grey;
+            text-shadow: 10px           5px             6px         white;
+        }
+
+        /*Click effect*/
+        .circle:active
+        {
+            position: relative;
+            margin-top: 55px;
+            margin-left: 10px;
+            background: Purple;
+            width: 200px;
+            height: 200px;
+            border-width: 100px;
+            border-radius: 100px;
+            box-shadow: 0 0 0 grey;
+            text-shadow: 0 0 0 red;
+        }
+        .circle p
+        {
+            padding: 90px 0 0 68px;
+            font-family: "Monaco";
+            font-weight: bold;
+            color: Aqua;
+        }
+        .wrapword
+        {
+            background: Aqua;
+            width: 50px;
+            height: 250px;
+            box-shadow: 8px -8px 5px black;
+            border-radius: 20px;
+            word-wrap: break-word;
+        }
+        .wrapword p
+        {
+            padding: 15px 2px 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131013</h1>
+    <div class="circle">
+       <p>CIRCLE</p>
+    </div>
+    <div class="wrapword">
+        <p>Circle, congratulations, seewhatwecandobyusingwordwrap.</p>
+    </div>
+    <p>包括word-wrap和text-shadow在内，CSS3新添的文本属性一共是11个。
+<br />
+hanging-punctuation：指定标点符号是否可以放置在线框外。
+<br />
+punctuation-trim：指定表单符号是否被裁减。
+<br />
+text-align-last：当text-align属性被设定为justify时，此属性指定了最后一行或强制分行处前一行的对齐方式。
+<br />
+text-emphasis：添加强调标志，设置强调标志的前景颜色。
+<br />
+text-justify：当text-align的属性值设置为“justify”的时候，此属性指定对齐方式。
+<br />
+text-outline：指定文本轮廓。
+<br />
+text-overflow：定义当文字溢出元素范围时的操作。
+<br />
+text-shadow：添加文字阴影。
+<br />
+text-wrap：为文本定义折行规则。
+<br />
+word-break：为非中日韩脚本定义折行规则。
+<br />
+word-wrap：允许长的，不应被折行的词汇被强制折行。
+    </p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20130918</title>
+    <style type="text/css">
+        a:link
+        {
+            color: red;
+            font-weight: bold;
+        }
+        a:visited
+        {
+            color: orange;
+        }
+        a:focus
+        {
+            color: purple;
+        }
+        a:hover
+        {
+            color: green;
+        }
+        a:active
+        {
+            color: blue;
+        }
+        h1, p[class~="selected"]
+        {
+            color: Lime;
+            font-family: Monaco;
+        }
+        div.work p:first-letter
+        {
+            font-family: FreeMono;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        div.other p em:first-letter
+        {
+            font-family: gargi;
+            font-size: 60px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+	<h1>20130918</h1>
+    Demo for style of a:link.
+    <a href="#">Test Link</a>
+    <p class="selected">This is a paragraph which has class property with value of "selected".</p>
+    <p>This is a paragraph which does not have class property.</p>
+    <p class="selected">This is another paragraph which has class property with value of "selected".</p>
+    <p class="selected another">This is a third paragraph which has class property with value of "selected another".</p>
+    <div class="work">
+        <p>This is a paragraph which has <em>class</em> property with value of "work".</p>
+    </div>
+    <div class="other">
+        <p>This is a paragraph which has <em>class</em> property with value of "other".</p>
+    </div>
+</body>
+</html>

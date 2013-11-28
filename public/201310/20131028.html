@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131028</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var canvas = document.getElementById('myCanvas');
+
+            if(canvas && canvas.getContext){
+                var context = canvas.getContext('2d');
+                var imgd;
+                var w = 150;
+                var h = 150;
+                if(context.createImageData){
+                    imgd = context.createImageData(w, h);
+                } else if (context.getImageData) {
+                    imgd = context.getImageData(0, 0, w, h);
+                } else {
+                    imgd = { 'width': w, 'height': h, 'data': new Array(50*50*4)};
+                }
+
+                var pix = imgd.data;
+
+                /*
+                for(var i = 0; n = pix.length, i < n; i += 4){
+                    pix[i] = 255;//red channel
+                    pix[i+3] = 127;//alpha channel
+                }
+                */
+                for(var i = 0; i < w * 4; i+= 4){
+                    pix[i] = 255; //red channel
+                    pix[i+3] = 127;//alpha channel
+                }
+                context.putImageData(imgd, 100, 50);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>20131028</h1>
+    <p>Give me a pixel, I can draw a whole world for you. But, let's start with simple graphs.</p>
+    <canvas id="myCanvas" width="640" height="480"></canvas>
+</body>
+</html>

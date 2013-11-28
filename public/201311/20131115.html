@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131115</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        .overlap{
+            max-width: 300px;
+            margin: 5px auto;
+            padding: 10px;
+            border: solid 3px Blue;
+            position: relative;
+        }
+        #first{
+            background: Aqua;
+        }
+        #second{
+            background: Pink;
+            left: 30px;
+            top: -20px;
+        }
+        #third{
+            background: Grey;
+            left: 60px;
+            top: -40px;
+        }
+        /* If it is too low, not all the items can be seen*/
+        .side{
+            position: fixed;
+            top: 0;
+            left: 100px;
+            bottom: 0;
+            max-width: 200px;
+            border: solid 3px green;
+        }
+        .side ul{
+            position: relative;
+            left: -20px;
+        }
+    </style>
+</head>
+<body >
+    <h1>20131115</h1>
+    <div id="first" class="overlap">
+        First div First div First div First div First div First div First div First div First div First div 
+    </div>
+    <div id="second" class="overlap">
+        Second div Second div Second div Second div Second div Second div Second div Second div Second div Second div 
+    </div>
+    <div id="third" class="overlap">
+        Third div Third div Third div Third div Third div Third div Third div Third div Third div Third div 
+    </div>
+    <div class="side">
+        <ul>
+            <li>item 01</li>
+            <li>item 02</li>
+            <li>item 03</li>
+            <li>item 04</li>
+            <li>item 05</li>
+            <li>item 06</li>
+            <li>item 07</li>
+            <li>item 08</li>
+            <li>item 09</li>
+            <li>item 10</li>
+        </ul>
+    </div>
+</body>
+</html>

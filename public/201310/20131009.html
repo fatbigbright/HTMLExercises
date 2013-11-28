@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131009</title>
+    <style type="text/css">
+        #triangle
+        {
+            background-color: transparent;
+            display: block;
+            border: black solid 40px;
+            border-top-color: transparent;
+            border-bottom-color: Blue;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            width: 0;
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131009</h1>
+    <div id="triangle"></div>
+    <p>今天状态不好，弄个好玩的换换心情，用css实现一个三角形。基本的思路就是用一个块级元素——我用的是div——为它设置大于1的四个边框，将这个元素本身设置为宽高为零，则四个边就形成了四个三角形（它们的衔接部是斜线），如果只想要一个三角形，则让另外三个边框的颜色为透明，即可。</p>
+    <p>可以<a target="blank" href="http://codepen.io/chriscoyier/full/lotjh">参考这里</a>查看在线的动态演示，什么时候能有人家那种会做动态演示的开发能力啊。</p>
+</body>
+</html>

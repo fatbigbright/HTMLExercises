@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20130925</title>
+    <style type="text/css">
+        .visiNone
+        {
+            display: none;
+        }
+        .hide
+        {
+            visibility: hidden;
+        }
+        .block
+        {
+            display: block;
+        }
+        .list
+        {
+            display: list-item;
+        }
+        a:link, a:visited
+        {
+            background: #efb57c;
+            border: 2px outset #efb57c;
+        }
+        a
+        {
+            display: block;
+            width: 150px;
+            height: 20px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        a:focus, a:hover
+        {
+            background: #daa670;
+            border: 2px outset #daa670;
+            color: black;
+        }
+        a:active 
+        {
+            background: #bb8e6d;
+            border: 2px outset #bb8e6d;
+        }
+        .miniPhoto: hover .bigPhoto
+        {
+            display: none;
+        }
+        #popImg a, img
+        {
+            border: none;
+        }
+        #popImg a img.bigPhoto
+        {
+            height: 0; 
+            width: 0;
+            border-width: 0;
+        }
+
+        #popImg a:hover img.bigPhoto
+        {
+            position: absolute;
+            top: 1000px;
+            left: 160px;
+            height: 458px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+	<h1>20130925</h1>
+    <p>Show a series of dynamic effect of link &amp; image.</p>
+    <p class="visiNone">
+        <img src="../images/Prime.jpg" alt="first image" />
+    </p>
+    <p class="hide">
+        <img src="../images/Prime.jpg" alt="second image" />
+    </p>
+    <p class="block">
+        <img src="../images/Prime.jpg" alt="third image" />
+    </p>
+    <p class="list">
+        <img src="../images/Prime_preview.jpg" alt="small image 1" />
+        <img src="../images/Prime_preview.jpg" alt="small image 2" />
+        <img src="../images/Prime_preview.jpg" alt="small image 3" />
+    </p>
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    <a href="#">Link 4</a>
+    <div id="popImg">
+        <a class="checkImg" href="#">
+            <img class="smallPhoto" src="../images/Prime_preview.jpg" alt="mini image" />
+            <img class="bigPhoto" src="../images/Prime.jpg" alt="big image" />
+        </a>
+    </div>
+    </div>
+</body>
+</html>

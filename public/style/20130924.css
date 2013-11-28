@@ -1,0 +1,59 @@
+#all
+{
+    background: #FEF6E8;
+}
+
+#header
+{
+    background: #EDE5D7;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+#main
+{
+    background: #DCD6B4;
+    float: right;
+    width: 83%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    /* border-left: 2px dashed #B74E07; */
+}
+#side
+{
+    background: #CBE8A3;
+    margin-right: 85%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    overflow: hidden;//Make side part to be hidden when browser window is small
+}
+#footer
+{
+    background: #BAB675;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    /* margin: 10px 0 0 0; */
+    /* border-top: 2px dashed #B74E07; */
+    clear: both;
+}
+.paraInset
+{
+    border: 5px inset green;
+}
+.paraOutset
+{
+    border: 5px outset blue;
+    /* padding: 5px 5px 5px 5px; */
+    /* margin: 5px 5px 5px 5px; */
+}
+.paraGroove
+{
+    border: 5px groove purple;
+}
+a:hover, a:active, a:focus
+{
+    background: #98E5F8;
+    cursor: help;
+}

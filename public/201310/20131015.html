@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20131015</title>
+    <style type="text/css">
+        code
+        {
+            font-family: "Monaco";
+            font-size: 15px;
+            color: Purple;
+        }
+        div
+        {
+            width: 200px;
+            height: 100px;
+            background-color: Aqua;
+            border-width: 10px;
+            box-shadow: 10px 5px 3px black;
+            border-radius: 30px;
+        }
+        div p
+        {
+            padding: 15px 0 0 15px;
+        }
+        .rotate
+        {
+            transform: perspective(100px) rotateX(20deg) rotateY(-30deg);
+            -webkit-transform: perspective(100px) rotateX(20deg) rotateY(-30deg);
+            -ms-transform: perspective(100px) rotateX(20deg) rotateY(-30deg);
+        }
+        .combine
+        {
+            /*Note that if translating of z is more than that of perspective, is will be shown as an opposite image*/
+            /*rotate3d takes a vector as pivot, and get degree of rotation*/
+            transform: perspective(50px) translate3d(100px, 50px, 20px) rotate3d(1, 1, -0.5, 15deg);
+            -webkit-transform: perspective(50px) translate3d(100px, 50px, 20px) rotate3d(1, 1, -0.5, 15deg);
+            -ms-transform: perspective(50px) translate3d(100px, 50px, 20px) rotate3d(1, 1, -0.5, 15deg);
+        }
+    </style>
+</head>
+<body>
+	<h1>20131015</h1>
+    <p>Note that <code>perspective</code> property for 3D transforming is important. Which defines the camera view point, and must be a number more that zero.</p>
+    <div class="normal">
+        <p>This demo demonstrates 3D transforming of CSS3.</p>
+    </div>
+    <div class="rotate">
+        <p>This demo demonstrates 3D transforming of CSS3.</p>
+    </div>
+    <div class="combine">
+        <p>This demo demonstrates 3D transforming of CSS3.</p>
+    </div>
+</body>
+</html>

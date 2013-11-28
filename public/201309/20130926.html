@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20130926</title>
+    <style type="text/css">
+        /*Clear ul style*/
+        #navbar ul
+        {
+            margin: 0; padding: 0; list-style: none;
+        }
+
+        /*Every item in top level list*/
+        #navbar a
+        {
+            display: block; width: 10em;
+            font-size: 20px;
+        }
+        #navbar li
+        {
+            float: left; width: 10em;
+            background: Aqua;
+            /* border: solid #98E5D4; */
+        }
+        #navbar li ul
+        {
+            display: none;
+        }
+        #navbar li:hover ul
+        {
+            display: block; 
+            width: 10em; 
+            position: absolute;
+            font-size: 15px;
+        }
+        
+    </style>
+</head>
+<body>
+	<h1>20130926</h1>
+    <p>Demo for dropdown list by using ul&gt;li.</p>
+    <div id="navbar">
+        <ul>
+            <li>
+                <a href="#">Autobots</a>
+                <ul>
+                    <li>Optimus Prime</li>
+                    <li>BumbleBee</li>
+                    <li>Cliffjumper</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Deceptcons</a>
+                <ul>
+                    <li>Megatron</li>
+                    <li>SoundWave</li>
+                    <li>StarScream</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

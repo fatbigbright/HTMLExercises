@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131116</title>
+    <style type="text/css">
+        body{
+            margin: 20px auto;
+            max-width: 800px;
+            font-family: "Monaco";
+            border: solid 3px Purple;
+        }
+
+        #first, #second, #third{
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border: solid 5px Blue;
+        }
+        #first, #second{
+            position: relative;
+        }
+        #third{
+            position: static;
+        }
+        #second-child, #third-child{
+            background: Aqua;
+            max-width: 200px;
+            margin: 10px auto;
+            padding: 5px;
+            border: solid 2px Black;
+        }
+        #second-child{
+            position: absolute;
+            top: 50px;
+            right: 0;
+        }
+        #third-child{
+            position: absolute;
+            top: 50px;
+            left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131116</h1>
+    <div id="first">
+        This is the first part. This is the first part. This is the first part. This is the first part. This is the first part. This is the first part. This is the first part. This is the first part. This is the first part. This is the first part. 
+    </div>
+    <div id="second">
+        This is the second part.This is the second part.This is the second part.This is the second part.This is the second part.This is the second part.This is the second part.This is the second part.This is the second part.This is the second part.
+        <div id="second-child">
+            This is child node of second part.
+        </div>
+    </div>
+    <div id="third">
+        This is the third part. This is the third part. This is the third part. This is the third part. This is the third part. This is the third part. This is the third part. This is the third part. This is the third part. This is the third part. 
+        <div id="third-child">This is child node of third part. But value of position property is absolute while that of parent div is static, so it has an absolute position relative to the root.</div>
+    </div>
+</body>
+</html>

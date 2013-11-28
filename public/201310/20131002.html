@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131002</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Monaco", "Verdana", sans-serif;
+        }
+        td
+        {
+            padding: 4px 10px;
+        }
+        caption
+        {
+            font-weight: bold;
+            color: #9A6016;
+        }
+        .cities
+        {
+            background: #D1A367;
+        }
+        .data
+        {
+            background: #F0E7DB;
+        }
+        .totals
+        {
+            background: #F3D9B7;
+        }
+        .titles
+        {
+            text-align: center;
+            background: #D1A367;
+        }
+        .tableBody
+        {
+            text-align: center;
+        }
+        table
+        {
+            border-color: #754F1D;
+            border-width: 3px;
+            table-layout: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131002</h1>
+    <p>Demo for table column group.</p>
+    <p>Notes: <br />
+        <ul>
+            <li>frame property of table defines which borders will be displayed.
+            Available values are:
+                <ul>
+                    <li>void: no border</li>
+                    <li>above: top</li>
+                    <li>below: bottom</li>
+                    <li>hsides: top &amp; bottom</li>
+                    <li>vsides: left &amp; right</li>
+                    <li>rhs: right</li>
+                    <li>lhs: left</li>
+                    <li>box or border: all the four edges</li>
+                </ul>
+            </li>
+            <li>
+                rules property of table defines which inner borders will be displayes. Available values are: 
+                <ul>
+                    <li>none: no border</li>
+                    <li>rows: between every lines</li>
+                    <li>cols: between every cols</li>
+                    <li>groups: between every groups &amp; table header/body</li>
+                    <li>all: every lines/cols</li>
+                </ul>
+            </li>
+            <li>nowrap property of td is not recommended which may cause width property of table take no efforts</li>
+        </ul>
+    </p>
+    <table cellspacing="0" border="4" frame="hsides" rules="groups">
+        <caption>Fox sightings in Western Massachusetts</caption>
+        <colgroup class="cities"></colgroup>
+        <colgroup class="data" span="3">
+            <col span="2" />
+            <col class="totals" />
+        </colgroup>
+        <thead class="titles">
+            <tr>
+                <td>&nbsp;</td>
+                <td>Kits</td>
+                <td>Adults</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody class="tableBody">
+            <tr>
+                <td>Hawley</td>
+                <td>2</td>
+                <td>4</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Becket</td>
+                <td>5</td>
+                <td>22</td>
+                <td>27</td>
+            </tr>
+            <tr>
+                <!-- <td nowrap="nowrap">Worthington Center</td> -->
+                <td>Worthington Center</td>
+                <td>7</td>
+                <td>5</td>
+                <td>12</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

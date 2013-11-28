@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131020</title>
+    <style type="text/css">
+        p{ margin: 4px; }
+
+        /* All the hyper links start with "http"*/
+        a[href^="http:"]{
+            background: Aqua;
+            padding-left: 20px;
+        }
+        /* All the hyper links end with "pdf" */
+        a[href$="pdf"]{
+            background: Red;
+            font-family: "Monaco";
+            font-weight: bold;
+        }
+        a[href$="xls"]{
+            background: Purple;
+        }
+
+        /* All the hyper links contain "google" */
+        a[href*="google"]{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131020</h1>
+    <p>Demo for Selector.</p>
+    <p><a href="http://www.baidu.com/name.pdf">PDF file</a></p>
+    <p><a href="http://www.baidu.com/name.ppt">PPT file</a></p>
+    <p><a href="http://www.baidu.com/name.xls">XLS file</a></p>
+    <p><a href="http://www.baidu.com/#anchor">#anchor</a></p>
+    <p><a href="http://www.google.com">http://www.google.com</a></p>
+    <p><a href="http://www.google.com/name.pdf">Google PDF file</a></p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20130913</title>
+</head>
+<body>
+    <h1>20130913</h1>
+    This is a demo of shortcut keys for hyperlink, tabindex, links as picture. Test result on Chrome: shortcut key will open a popup window, while clicking the hyperlink will open a new sheet page.
+    <br />
+    Note that under Mac OSX, Alt key is implemented as &lt;Ctrl + Option&gt;.
+    <hr />
+    <a href="20130913/shortcut_w.html" accesskey="w" tabindex="1" target="popup">Press Alt-W</a>
+    <br />
+    <a href="20130913/shortcut_c.html" accesskey="c" tabindex="1" target="popup">Press Alt-C</a>
+    <hr />
+    Click the picture or press Alt-H to go back to homepage <br />
+    <a href="../index.html" accesskey="h" tabindex="1"><img src="../images/Home.jpg" alt="Back to Home Page" /></a>
+    <hr />
+    Click the small picture of Optimus prime or press Alt-P go see the large size of it. <br />
+    <a href="../images/Prime.jpg" accesskey="p" tabindex="1" target="popup"><img src="../images/Prime_preview.jpg" alt="Press to see the large image" /></a>
+    <hr />
+    This is an image map. <code>usemap</code> property of &lt;img&gt; can be banner of other pages. It needs more research.
+    <map name="shortcut_banner" id="shortcut_banner">
+        <area shape="rect" coords="36,29,355,118" target="popup" href="20130913/shortcut_w.html" alt="shortcut_w page" />
+        <area shape="rect" coords="34,183,356,265" target="popup" href="20130913/shortcut_c.html" alt="shortcut_c page" />
+    </map>
+    <br />
+    <img src="../images/banner.jpg" alt="shortcut_banner" usemap="#shortcut_banner" />
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131005</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var megatron = new Image(223, 300);
+            megatron.src = "../images/Megatron_preview.jpg";
+            var prime = new Image(500, 458);
+            prime.src = "../images/Prime.jpg";
+
+            document.pic.src = megatron.src;
+            document.pic.onmouseout=function(){
+                document.pic.src = megatron.src;
+            };
+            document.pic.onmouseover=function(){
+                document.pic.src = prime.src;
+            };
+        }
+    </script>
+</head>
+<body>
+    <noscript>javascript is disabled on your browser.</noscript>
+    <h1>20131005</h1>
+    <p>Demo for javascript. If js is disabled by browser setting, a no-script information will be displayed on page.</p>
+    <img name="pic" src="" alt="" />
+</body>
+</html>

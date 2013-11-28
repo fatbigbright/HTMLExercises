@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131004</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Monaco";
+        }
+        fieldset
+        {
+            background: #C361D2;
+            border: outset;
+            margin-bottom: 1em;
+            width: 25em;
+            padding-top: 1.5em;
+        }
+        textarea
+        {
+            font: .8em "Monaco", Verdana, sans-serif;
+            width: 29em;
+            padding: .2em;
+        }
+        .legend
+        {
+            background: #DED983;
+            color: black;
+            padding: .2em .3em;
+            font-size: 15px;
+            border: 2px outset #DED983;
+            position: relative;
+            margin-bottom: -1em;
+            width: 15em;
+            margin-left: 1em;
+            margin-top: 1em;
+            text-align: center;
+        }
+        #personal label, #choices label, #suggestion label
+        {
+            position: absolute;
+            font-size: 90%;
+            padding-top: .2em;
+            left: 20px;
+        }
+        #personal input 
+        {
+            margin-left: 9em;
+            line-height: 1.em;
+            margin-bottom: .2em;
+        }
+        #choices
+        {
+            background: #F5D984;
+        }
+        #choices select
+        {
+            margin-left: 9em;
+            margin-bottom: 0;
+        }
+        #suggestion
+        {
+            background: #B4F5DA;
+        }
+        .size
+        {
+            font-size: 90%;
+        }
+        .size input
+        {
+            margin-left: 9em;
+        }
+        .size input + input
+        {
+            margin-left: 1em;
+        }
+        .size br + input
+        {
+            margin-left: 9em;
+        }
+        .extras
+        {
+            font-size: 90%;
+        }
+        .extras input
+        {
+            margin-left: 9em;
+        }
+        .extras input + input
+        {
+            margin-left: 1em;
+        }
+        .extras br + input
+        {
+            margin-left: 9em;
+        }
+        #name, #address, #city
+        {
+            width: 20em;
+        }
+        #state
+        {
+            width: 5em;
+        }
+        #zipcode
+        {
+            width: 10em;
+        }
+        #customerID
+        {
+            width: 15em;
+        }
+        #buttons
+        {
+            padding-left: 6.5em;
+        }
+        input[type="submit"], input[type="reset"]
+        {
+            background: #DED983;
+            font: 0.9em "Monaco", Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131004</h1>
+    <p>Demo for a form, with no post action yet.</p>
+    <p>Notes: radio buttons with the same name will be exclusive to each other.</p>
+    <form action="" method="post">
+        <p class="legend">Personal Information</p>
+        <fieldset id="personal">
+            <label>Name:</label>
+            <input id="name" type="text" name="name" /><br />
+            <label>Address:</label>
+            <input id="address" type="text" name="address" /><br />
+            <label>Town/City:</label>
+            <input id="city" type="text" name="city" /><br />
+            <label>State:</label>
+            <input id="state" type="text" name="state" /><br />
+            <label>Zipcode:</label>
+            <input id="zipcode" type="text" name="zipcode" /><br />
+            <label>Customer ID:</label>
+            <input id="customerID" type="password" name="customerID" />
+        </fieldset>
+        <p class="legend">Choices</p>
+        <fieldset id="choices">
+            <label>Type of wood:</label>
+            <select id="typeWood" name="typeWood">
+                <optgroup label="Hard woods">
+                    <option value="Mahogany">Mahogany</option>
+                    <option value="Maplewood">Maplewood</option>
+                    <option value="Cherry">Cherry</option>
+                </optgroup>
+                <optgroup label="Soft woods">
+                    <option value="Pine">Pine</option>
+                    <option value="Fir">Fir</option>
+                </optgroup>
+            </select>
+            <p class="size">
+                <label>Size:</label>
+                <input id="king" type="radio" name="size">King</input>
+                <input id="queen" type="radio" name="size">Queen</input> 
+                <br />
+                <input id="twin" type="radio" name="size">Twin</input>
+                <input id="single" type="radio" name="size">Single</input>
+            </p>
+            <p class="extras">
+                <label>Extra:</label>
+                <input id="footboard" type="checkbox" name="extras[]">Footboard</input>
+                <input id="drawers" type="checkbox" name="extras[]">Drawers</input>
+                <br />
+                <input id="casters" type="checkbox" name="extras[]">Casters</input>
+                <input id="squeak" type="checkbox" name="extras[]">Squeak proofing</input>
+            </p>
+        </fieldset>
+        <p class="legend">Suggestion</p>
+        <fieldset id="suggestion">
+            <textarea id="sugText" name="comments" cols="40" rows="3" readonly="readonly">This is set to be a readonly field, you can edit text in it.</textarea>
+        </fieldset>
+        <p id="buttons">
+            <input type="submit" value="Order Bed" disabled="disabled" />
+            <input type="reset" value="Start Over" />
+        </p>
+    </form>
+</body>
+</html>
