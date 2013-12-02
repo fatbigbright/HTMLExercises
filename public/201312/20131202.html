@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20131202</title>
+    <style type="text/css">
+        div {
+            display: block;
+            border: solid Aqua 2px;
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+        }
+        .elem{
+            position: relative;
+        }
+        .container {
+            position: relative;
+            box-sizing: border-box;
+            width: 80%;
+            
+            /* make the div located in center */
+            margin: auto;
+        }
+        .navigation {
+            display: inline-block;
+            vertical-align: top;
+            width: 15%;
+            border: solid blue 2px;
+        }
+        .column{
+            display: inline-block;
+            vertical-align: top;
+            width: 85%;
+            border: solid green 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>20131202</h1>
+    <div class="container">
+        <div class="elem navigation">
+            <ul>
+                <li>item 01</li>
+                <li>item 02</li>
+                <li>item 03</li>
+                <li>item 04</li>
+                <li>item 05</li>
+                <li>item 06</li>
+            </ul>
+        </div><!--No spaces here in source code--><div class="column elem">
+            <div class="elem">Section 1. </div>
+            <div class="elem"><p>Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. Section 2. </p></div>
+        </div>
+    </div>
+</body>
+</html>
