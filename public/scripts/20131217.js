@@ -1,6 +1,6 @@
 function MovingObject(canvas){
     var canvasHeight = canvas.height;
-    var canvasWidth = canvas.Width;
+    var canvasWidth = canvas.width;
     var canvasContext = canvas.getContext('2d');
     this.up_flag = false;
     this.down_flag = false;
@@ -15,21 +15,19 @@ function MovingObject(canvas){
     var vertical_speed = 0;
     var horizonal_speed = 0;
         
-    var x = 0; 
-    var y = 0;
+    var x = 190; 
+    var y = 190;
     var width = 20;
     var height = 20;
     var color = "#124534";
     this.draw = function(){
         if(this.up_flag){
             vertical_ac -= 0.1;
+            this.up_flag = false;
         }
-        else{
-            vertical_ac = 0;
-        }
-
-        if(this.down_flag){
+        else if(this.down_flag){
             vertical_ac += 0.1;
+            this.down_flag = false;
         }
         else{
             vertical_ac = 0;
@@ -37,16 +35,14 @@ function MovingObject(canvas){
 
         if(this.left_flag){
             horizonal_ac -= 0.1;
+            this.left_flag = false;
         }
-        else{
-            horizonal_ax = 0;
-        }
-
-        if(this.right_flag){
+        else if(this.right_flag){
             horizonal_ac += 0.1;
+            this.right_flag = false;
         }
         else{
-            horizonal_ax = 0;
+            horizonal_ac = 0;
         }
 
         vertical_speed += vertical_ac;
@@ -59,7 +55,7 @@ function MovingObject(canvas){
         }
         if(y <= 0)
             y = 0;
-        else if(y + height >= canvasHeight)
+        if(y + height >= canvasHeight)
             y = canvasHeight - height;
 
         x += horizonal_speed;
@@ -69,7 +65,7 @@ function MovingObject(canvas){
         }
         if(x <= 0) 
             x = 0;
-        else if(x + width >= canvasWidth)
+        if(x + width >= canvasWidth)
             x = canvasWidth - width;
 
         canvasContext.fillStyle = color;
@@ -112,6 +108,7 @@ window.onload = function(){
                 break;
         }
     };
+    /*
     window.onkeyup = function(e){
         var keyCode;
         if(window.event){
@@ -137,6 +134,7 @@ window.onload = function(){
                 break;
         }
     };
+    */
 
     setInterval(function(){
         clearCanvas();
