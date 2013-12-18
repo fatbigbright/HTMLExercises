@@ -1,11 +1,12 @@
-function MovingObject(canvas){
+//acceleration is changing
+function MovingObjectAcceleration(canvas){
     var canvasHeight = canvas.height;
     var canvasWidth = canvas.width;
     var canvasContext = canvas.getContext('2d');
-    this.up_flag = false;
-    this.down_flag = false;
-    this.left_flag = false;
-    this.right_flag = false;
+    var up_flag = false;
+    var down_flag = false;
+    var left_flag = false;
+    var right_flag = false;
 
      /* Accelerations */
     var vertical_ac = 0;
@@ -15,31 +16,46 @@ function MovingObject(canvas){
     var vertical_speed = 0;
     var horizonal_speed = 0;
         
-    var x = 190; 
-    var y = 190;
     var width = 20;
     var height = 20;
+    var x = (canvasWidth - width) / 2; 
+    var y = (canvasHeight - height) / 2;
     var color = "#124534";
+
+    // public methods
+    //
+    this.pressUp = function(){
+        up_flag = true;
+    };
+    this.pressDown = function(){
+        down_flag = true;
+    };
+    this.pressLeft = function(){
+        left_flag = true;
+    };
+    this.pressRight = function(){
+        right_flag = true;
+    };
     this.draw = function(){
-        if(this.up_flag){
+        if(up_flag){
             vertical_ac -= 0.1;
-            this.up_flag = false;
+            up_flag = false;
         }
-        else if(this.down_flag){
+        else if(down_flag){
             vertical_ac += 0.1;
-            this.down_flag = false;
+            down_flag = false;
         }
         else{
             vertical_ac = 0;
         }
 
-        if(this.left_flag){
+        if(left_flag){
             horizonal_ac -= 0.1;
-            this.left_flag = false;
+            left_flag = false;
         }
-        else if(this.right_flag){
+        else if(right_flag){
             horizonal_ac += 0.1;
-            this.right_flag = false;
+            right_flag = false;
         }
         else{
             horizonal_ac = 0;
@@ -73,10 +89,95 @@ function MovingObject(canvas){
     };
 }
 
+//speed is changing
+function MovingObjectSpeed(canvas){
+    var canvasHeight = canvas.height;
+    var canvasWidth = canvas.width;
+    var canvasContext = canvas.getContext('2d');
+    var width = 20;
+    var height = 20;
+    var x = (canvasWidth - width) / 2;
+    var y = (canvasHeight - height) / 2;
+    var color = "#7812aa";
+    var vertical_speed = 0;
+    var horizonal_speed = 0;
+    this.pressUp = function(){
+        vertical_speed -= 0.1;
+    };
+    this.pressDown = function(){
+        vertical_speed += 0.1;
+    };
+    this.pressLeft = function(){
+        horizonal_speed -= 0.1;
+    };
+    this.pressRight = function(){
+        horizonal_speed += 0.1;
+    };
+    this.draw = function(){
+        x += horizonal_speed;
+        if(x <= 0 || x + width >= canvasWidth) {
+            horizonal_speed = 0;
+        }
+        if(x <= 0)
+            x = 0;
+        if(x + width >= canvasWidth)
+            x = canvasWidth - width;
+        y += vertical_speed;
+        if(y <= 0 || y + height >= canvasHeight) {
+            vertical_speed = 0;
+        }
+        if(y <= 0)
+            y = 0;
+        if(y + height >= canvasHeight)
+            y = canvasHeight - height;
+    canvasContext.fillStyle = color;
+    canvasContext.fillRect(x, y, width, height);
+    };
+}
+function MovingObjectWithDefect(canvas){
+    var canvasHeight = canvas.height;
+    var canvasWidth = canvas.width;
+    var canvasContext = canvas.getContext('2d');
+    var width = 20;
+    var height = 20;
+    var x = (canvasWidth - width) / 2;
+    var y = (canvasHeight - height) / 2;
+    var color = "#2309ee";
+    var step = 5;
+    this.pressUp = function(){
+        y -= step;
+        if(y < 0) y = 0;
+    };
+    this.pressDown = function(){
+        y += step;
+        if(y > canvasHeight - height) y = canvasHeight - height;
+    };
+    this.pressLeft = function(){
+        x -= step;
+        if(x < 0) x = 0;
+    };
+    this.pressRight = function(){
+        x += step;
+        if(x > canvasWidth - width) x = canvasWidth - width;
+    };
+    this.draw = function(){
+        canvasContext.fillStyle = color;
+        canvasContext.fillRect(x, y, width, height);
+    };
+}
+
 window.onload = function(){
     var canvas = document.getElementById('myCanvas');
+    var objectMode = 1;
+
+    var movingObjectAcceleration = new MovingObjectAcceleration(canvas);
+    var movingObjectSpeed = new MovingObjectSpeed(canvas);
+    var movingObjectDefect = new MovingObjectWithDefect(canvas);
+
+    var button = document.getElementById('changeMode');
+    var buttonText = document.getElementById('changeModeText');
     var context = canvas.getContext('2d');
-    var obj = new MovingObject(canvas);
+    var obj = movingObjectAcceleration;
     
     var clearCanvas = function(){
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -93,50 +194,59 @@ window.onload = function(){
 
         switch(keyCode){
             case 37://Left
-                obj.left_flag = true;
+                obj.pressLeft();
                 break;
             case 39://Right
-                obj.right_flag = true;
+                obj.pressRight();
                 break;
             case 38://Up
-                obj.up_flag = true;
+                obj.pressUp();
                 break;
             case 40://Down
-                obj.down_flag = true;
+                obj.pressDown();
                 break;
             default:
                 break;
         }
     };
-    /*
-    window.onkeyup = function(e){
-        var keyCode;
-        if(window.event){
-            keyCode = e.keyCode;
-        }
-        else if(e.which){
-            keyCode = e.which;
-        }
-        switch(keyCode){
-            case 37://Left
-                obj.left_flag = false;
-                break;
-            case 39://Right
-                obj.right_flag = false;
-                break;
-            case 38://Up
-                obj.up_flag = false;
-                break;
-            case 40://Down
-                obj.down_flag = false;
-                break;
-            default:
-                break;
-        }
-    };
-    */
+    var loopMovingObject;
 
-    setInterval(function(){
+    button.onclick = function(){
+        var currentObjectMode = objectMode;
+        switch(currentObjectMode){
+            case 1:
+                objectMode = 2;
+                buttonText.innerText = 'Change to Mode 3';
+                button.style.backgroundColor = 'Purple';
+                buttonText.style.color = 'Aqua';
+                obj = movingObjectSpeed;
+                break;
+            case 2:
+                objectMode = 3;
+                buttonText.innerText = 'Change to Mode 1';
+                button.style.backgroundColor = 'Red';
+                buttonText.style.color = 'Yellow';
+                obj = movingObjectDefect;
+                break;
+            case 3:
+                objectMode = 1;
+                buttonText.innerText = 'Change to Mode 2';
+                button.style.backgroundColor = 'Aqua';
+                buttonText.style.color = 'Black';
+                obj = movingObjectAcceleration;
+                break;
+            default:
+                break;
+        }
+
+        clearInterval(loopMovingObject);
+        loopMovingObject = setInterval(function(){
+            clearCanvas();
+            obj.draw();
+        }, 1000/60);
+    };
+
+    loopMovingObject = setInterval(function(){
         clearCanvas();
         obj.draw();
     }, 1000/60);

@@ -13,12 +13,54 @@
             max-width: 800px;
             
         }
+        .circleButton{
+            background: Aqua;
+            position: relative;
+            float: right;
+            margin-right: 10px;
+            width: 200px;
+            height: 150px;
+            border-radius: 200px;
+            border-width: 30px;
+            box-shadow: 10px 5px 3px grey;
+            text-align: center;
+        }
+        .circleButton:active{
+            background: Aqua;
+            position: relative;
+            float: right;
+            margin-right: 0;
+            margin-top: 5px;
+            width: 200px;
+            height: 150px;
+            border-radius: 200px;
+            border-width: 30px;
+            box-shadow: 0 0 0 grey;
+            text-align: center;
+        }
+        .side{
+            width: 200px;
+            float: right;
+            margin-right: 100px;
+            font-family: Monaco;
+        }
+        .circleButton p{
+            padding-top: 60px;
+            font-size: 15px;
+        }
     </style>
 </head>
 <body>
     <div id="main">
         <h1>20131217 Game controlling demo</h1>
-        <input type="button" value="Change to Mode 2" /><br>
+        <div class="side">
+            <div id="changeMode" class="circleButton">
+                <p id="changeModeText">Change to Mode 2</p>
+            </div>
+            <div class="note">
+                <p>In Mode 1, acceleration is changing when direction key is being pressed; In Mode 2, speed is changing when direction key is being pressed. Mode 3 is the implement with defect, for its axis immediately changes when direction key is being pressed.</p>
+            </div>
+        </div>
         <canvas id="myCanvas" width="400" height="400"></canvas>
     </div>
 </body>
