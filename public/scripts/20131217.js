@@ -101,17 +101,18 @@ function MovingObjectSpeed(canvas){
     var color = "#7812aa";
     var vertical_speed = 0;
     var horizonal_speed = 0;
+    var step = 0.1;
     this.pressUp = function(){
-        vertical_speed -= 0.1;
+        vertical_speed -= step;
     };
     this.pressDown = function(){
-        vertical_speed += 0.1;
+        vertical_speed += step;
     };
     this.pressLeft = function(){
-        horizonal_speed -= 0.1;
+        horizonal_speed -= step;
     };
     this.pressRight = function(){
-        horizonal_speed += 0.1;
+        horizonal_speed += step;
     };
     this.draw = function(){
         x += horizonal_speed;
@@ -122,6 +123,7 @@ function MovingObjectSpeed(canvas){
             x = 0;
         if(x + width >= canvasWidth)
             x = canvasWidth - width;
+        //horizonal_speed = 0;
         y += vertical_speed;
         if(y <= 0 || y + height >= canvasHeight) {
             vertical_speed = 0;
@@ -130,8 +132,9 @@ function MovingObjectSpeed(canvas){
             y = 0;
         if(y + height >= canvasHeight)
             y = canvasHeight - height;
-    canvasContext.fillStyle = color;
-    canvasContext.fillRect(x, y, width, height);
+        //vertical_speed = 0;
+        canvasContext.fillStyle = color;
+        canvasContext.fillRect(x, y, width, height);
     };
 }
 function MovingObjectWithDefect(canvas){
@@ -243,11 +246,11 @@ window.onload = function(){
         loopMovingObject = setInterval(function(){
             clearCanvas();
             obj.draw();
-        }, 1000/60);
+        }, 1000/15);
     };
 
     loopMovingObject = setInterval(function(){
         clearCanvas();
         obj.draw();
-    }, 1000/60);
+    }, 1000/15);
 }
