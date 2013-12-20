@@ -27,20 +27,7 @@ function circle(canvas, x, y, radius, color, mass){
         speed_x += g_x;
         speed_y += g_y;
     };
-    /*
-    this.pressUp = function(){
-        up_flag = true;
-    };
-    this.pressDown = function(){
-        down_flag = true;
-    };
-    this.pressLeft = function(){
-        left_flag = true;
-    };
-    this.pressRight = function(){
-        right_flag = true;
-    };
-    */
+
     this.draw = function(){
         if(up_flag){
             speed_y += -step; 
@@ -97,46 +84,64 @@ function circle(canvas, x, y, radius, color, mass){
     };
 }
 
+function gravity(star, planet){
+    var G = 6.67;
+    var deltaX = star.x - planet.x;
+    var deltaY = star.y - planet.y;
+    var distanceSquare = deltaX * deltaX + deltaY * deltaY;
+    var distance = Math.sqrt(distanceSquare);
+    var planet_gravity_factor = G * star.mass / (distanceSquare * distance);
+    var g_planet_x = deltaX * planet_gravity_factor;
+    var g_planet_y = deltaY * planet_gravity_factor;
+
+    //planet.massEffect(g_planet_x, g_planet_y);
+
+    /* perturbation of the star */
+    var star_gravity_factor = G * planet.mass / (distanceSquare * distance);
+    var g_star_x = -deltaX * star_gravity_factor;
+    var g_star_y = -deltaY * star_gravity_factor;
+    //star.massEffect(g_star_x, g_star_y);
+    return { 
+        star_g_x: g_star_x,
+        star_g_y: g_star_y,
+        planet_g_x: g_planet_x, 
+        planet_g_y: g_planet_y,
+        distance: distance
+    };
+}
+
 window.onload = function(){
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
     var canvasWidth = canvas.width;
     var canvasHeight = canvas.height;
-    var gravity = function(star, planet){
-        var G = 6.67;
-        var deltaX = star.x - planet.x;
-        var deltaY = star.y - planet.y;
-        var distanceSquare = deltaX * deltaX + deltaY * deltaY;
-        var distance = Math.sqrt(distanceSquare);
-        if(distance <= star.radius + planet.radius)
-            return 'collide';
-        var planet_gravity_factor = G * star.mass / (distanceSquare * distance);
-        var g_planet_x = deltaX * planet_gravity_factor;
-        var g_planet_y = deltaY * planet_gravity_factor;
+    
+    var star1 = new circle(canvas, canvasWidth / 2 - 20, canvasHeight / 2 - 40, 10, 'Red', 29);
+    var star2 = new circle(canvas, canvasWidth / 2 + 40, canvasHeight / 2 - 10, 10, 'Yellow', 45);
+    var star3 = new circle(canvas, canvasWidth / 2 - 30, canvasHeight / 2 + 40, 10, 'Blue', 24);
 
-        planet.massEffect(g_planet_x, g_planet_y);
-
-        /* perturbation of the star */
-        var star_gravity_factor = G * planet.mass / (distanceSquare * distance);
-        var g_star_x = -deltaX * star_gravity_factor;
-        var g_star_y = -deltaY * star_gravity_factor;
-        star.massEffect(g_star_x, g_star_y);
-        return 'Normal';
-    };
-
-    var circle1 = new circle(canvas, canvasWidth/2 - 40, canvasHeight/2 - 50, 20, '#0000FF', 88);
-    var sun = new circle(canvas, canvasWidth/2, canvasHeight/2 + 50, 20, 'yellow', 88);
-
-    circle1.getOriginalForce({ x: 1.4, y: 0});
-    sun.getOriginalForce({ x: -1.4, y: 0});
+    star1.getOriginalForce({ x: 1.6, y: -1});
+    star2.getOriginalForce({ x: 0, y: 2});
+    star3.getOriginalForce({ x: -2.1, y: -1.65});
 
     var token = setInterval(function(){
         context.clearRect(0, 0, canvasWidth, canvasHeight);
-        if(gravity(sun, circle1) == 'collide'){
-            alert('The planet perished.');
-            clearInterval(token);
+        var g_12 = gravity(star1, star2);
+        var g_23 = gravity(star2, star3);
+        var g_31 = gravity(star3, star1);
+
+        if(g_12.distance <= star1.radius + star2.radius || 
+           g_23.distance <= star2.radius + star3.radius ||
+           g_31.distance <= star3.radius + star1.radius){
+               alert('The galaxy perished.');
+               clearInterval(token);
         }
-        sun.draw();
-        circle1.draw();
+        star1.massEffect(g_12.star_g_x + g_31.planet_g_x, g_12.star_g_y + g_31.planet_g_y);
+        star2.massEffect(g_12.planet_g_x + g_23.star_g_x, g_12.planet_g_y + g_23.star_g_y);
+        star3.massEffect(g_31.star_g_x + g_23.planet_g_x, g_31.star_g_y + g_23.planet_g_y);
+
+        star1.draw();
+        star2.draw();
+        star3.draw();
     }, 1000/30);
-};
+}
