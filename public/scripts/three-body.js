@@ -115,33 +115,66 @@ window.onload = function(){
     var context = canvas.getContext('2d');
     var canvasWidth = canvas.width;
     var canvasHeight = canvas.height;
-    
-    var star1 = new circle(canvas, canvasWidth / 2 - 20, canvasHeight / 2 - 40, 10, 'Red', 29);
-    var star2 = new circle(canvas, canvasWidth / 2 + 40, canvasHeight / 2 - 10, 10, 'Yellow', 45);
-    var star3 = new circle(canvas, canvasWidth / 2 - 30, canvasHeight / 2 + 40, 10, 'Blue', 24);
 
-    star1.getOriginalForce({ x: 1.6, y: -1});
-    star2.getOriginalForce({ x: 0, y: 2});
-    star3.getOriginalForce({ x: -2.1, y: -1.65});
+    var stop = document.getElementById('stop');
+    var run = document.getElementById('run');
 
-    var token = setInterval(function(){
+    var mess1 = document.getElementById('mass1');
+    var star1X = document.getElementById('star1X');
+    var star1Y = document.getElementById('star1Y');
+    var speed1X = document.getElementById('speed1X');
+    var speed1Y = document.getElementById('speed1Y');
+
+    var mess2 = document.getElementById('mass2');
+    var star2X = document.getElementById('star2X');
+    var star2Y = document.getElementById('star2Y');
+    var speed2X = document.getElementById('speed2X');
+    var speed2Y = document.getElementById('speed2Y');
+
+    var mess3 = document.getElementById('mass3');
+    var star3X = document.getElementById('star3X');
+    var star3Y = document.getElementById('star3Y');
+    var speed3X = document.getElementById('speed3X');
+    var speed3Y = document.getElementById('speed3Y');
+
+    var token;
+    run.onclick = function(){
+        run.value = 'running';
+        run.disabled = true;
+        var star1 = new circle(canvas, parseFloat(star1X.value), parseFloat(star1Y.value), 10, 'Red', parseFloat(mess1.value));
+        var star2 = new circle(canvas, parseFloat(star2X.value), parseFloat(star2Y.value), 10, 'Yellow', parseFloat(mess2.value));
+        var star3 = new circle(canvas, parseFloat(star3X.value), parseFloat(star3Y.value), 10, 'Blue', parseFloat(mess3.value));
+
+        star1.getOriginalForce({ x: parseFloat(speed1X.value), y: parseFloat(speed1Y.value)});
+        star2.getOriginalForce({ x: parseFloat(speed2X.value), y: parseFloat(speed2Y.value)});
+        star3.getOriginalForce({ x: parseFloat(speed3X.value), y: parseFloat(speed3Y.value)});
+
+        token = setInterval(function(){
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+            var g_12 = gravity(star1, star2);
+            var g_23 = gravity(star2, star3);
+            var g_31 = gravity(star3, star1);
+
+            if(g_12.distance <= star1.radius + star2.radius || 
+               g_23.distance <= star2.radius + star3.radius ||
+               g_31.distance <= star3.radius + star1.radius){
+                   clearInterval(token);
+                   run.value = 'Run';
+                   run.disabled = false;
+            }
+            star1.massEffect(g_12.star_g_x + g_31.planet_g_x, g_12.star_g_y + g_31.planet_g_y);
+            star2.massEffect(g_12.planet_g_x + g_23.star_g_x, g_12.planet_g_y + g_23.star_g_y);
+            star3.massEffect(g_31.star_g_x + g_23.planet_g_x, g_31.star_g_y + g_23.planet_g_y);
+
+            star1.draw();
+            star2.draw();
+            star3.draw();
+        }, 1000/30);
+    };
+    stop.onclick = function(){
+        clearInterval(token);
         context.clearRect(0, 0, canvasWidth, canvasHeight);
-        var g_12 = gravity(star1, star2);
-        var g_23 = gravity(star2, star3);
-        var g_31 = gravity(star3, star1);
-
-        if(g_12.distance <= star1.radius + star2.radius || 
-           g_23.distance <= star2.radius + star3.radius ||
-           g_31.distance <= star3.radius + star1.radius){
-               alert('The galaxy perished.');
-               clearInterval(token);
-        }
-        star1.massEffect(g_12.star_g_x + g_31.planet_g_x, g_12.star_g_y + g_31.planet_g_y);
-        star2.massEffect(g_12.planet_g_x + g_23.star_g_x, g_12.planet_g_y + g_23.star_g_y);
-        star3.massEffect(g_31.star_g_x + g_23.planet_g_x, g_31.star_g_y + g_23.planet_g_y);
-
-        star1.draw();
-        star2.draw();
-        star3.draw();
-    }, 1000/30);
+        run.value = 'Run';
+        run.disabled = false;
+    };
 }
