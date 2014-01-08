@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20140107</title>
+    <style>
+        ul li{
+            display: inline-block;
+            margin-left: 15px;
+        }
+        ul li:first-child {
+            margin-left: 0;
+        }
+        #list1 li:not(.filter) {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        #list1 li:nth-child(2n+2) {
+            font-family: Monaco;
+            color: Red;
+        }
+        #list1 li:first-child{
+            font-size: 2em;
+        }
+        #list1 li:last-child{
+            font-size: 2em;
+        }
+        #list2 li:nth-child(3n-3) {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: Purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>20140107</h1>
+    <ul id="list1">
+        <li class="filter">Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li class="filter">Item 4</li>
+        <li class="filter">Item 5</li>
+        <li class="filter">Item 6</li>
+        <li class="filter">Item 7</li>
+        <li class="filter">Item 8</li>
+    </ul><br />
+    <ul id="list2">
+        <li>Item 01</li>
+        <li>Item 02</li>
+        <li>Item 03</li>
+        <li>Item 04</li>
+        <li>Item 05</li>
+        <li>Item 06</li>
+        <li>Item 07</li>
+        <li>Item 08</li>
+    </ul>
+</body>
+</html>
