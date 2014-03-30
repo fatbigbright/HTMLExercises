@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .limb{
+            transform-origin: 0%;/* define the start point of transform */
+            -webkit-transform-origin: 0%;/* define the start point of transform */
+            position: absolute;
+        }
+        .arms{
+            width: 200px;
+            height: 50px;
+        }
+        .legs{
+            width: 230px;
+            height: 50px;
+        }
+        #body{
+            width: 100px;
+            height: 150px;
+            background: Purple;
+            transform-origin: 0%;
+            -webkit-transform-origin: 0%;
+            position: absolute;
+            transform: matrix(1, 0, 0, 1, 250, 225);
+            -webkit-transform: matrix(1, 0, 0, 1, 250, 225);
+        }
+        #leftHand{
+            background: gray;
+            animation: leftHand 2s infinite;
+            -webkit-animation: leftHand 2s infinite;
+        }
+        #rightHand{
+            background: blue;
+            animation: rightHand 2s infinite;
+            -webkit-animation: rightHand 2s infinite;
+        }
+        #leftLeg{
+            background: black;
+            animation: leftLeg 2s infinite;
+            -webkit-animation: leftLeg 2s infinite;
+        }
+        #rightLeg{
+            background: red;
+            animation: rightLeg 2s infinite;
+            -webkit-animation: rightLeg 2s infinite;
+        }
+        #head{
+            width: 60px;
+            height: 60px;
+            background: MidnightBlue;
+            position: absolute;
+            border-radius: 25px; 
+            transform: translate(275px, 160px);
+            -webkit-transform: translate(275px, 170px);
+        }
+
+        @keyframes leftHand
+        {
+            0% {
+                transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 200);
+            }
+            50% {
+                transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 200);
+            }
+            100% {
+                transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 200);
+            }
+        }
+
+        @-webkit-keyframes leftHand
+        {
+            0% {
+                -webkit-transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 200);
+            }
+            50% {
+                -webkit-transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 200);
+            }
+            100% {
+                -webkit-transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 200);
+            }
+        }
+
+        @keyframes rightHand
+        {
+            0% {
+                transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 200);
+            }
+            50% {
+                transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 200);
+            }
+            100% {
+                transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 200);
+            }
+        }
+
+        @-webkit-keyframes rightHand
+        {
+            0% {
+                -webkit-transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 200);
+            }
+            50% {
+                -webkit-transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 200);
+            }
+            100% {
+                -webkit-transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 200);
+            }
+        }
+        @keyframes leftLeg
+        {
+            0% {
+                transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 330);
+            }
+            50% {
+                transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 330);
+            }
+            100% {
+                transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 330);
+            }
+        }
+
+        @-webkit-keyframes leftLeg
+        {
+            0% {
+                -webkit-transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 330);
+            }
+            50% {
+                -webkit-transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 330);
+            }
+            100% {
+                -webkit-transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 330);
+            }
+        }
+        @keyframes rightLeg
+        {
+            0% {
+                transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 330);
+            }
+            50% {
+                transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 330);
+            }
+            100% {
+                transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 330);
+            }
+        }
+
+        @-webkit-keyframes rightLeg
+        {
+            0% {
+                -webkit-transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 330);
+            }
+            50% {
+                -webkit-transform: matrix(-0.7073, 0.7073, -0.7073, -0.7073, 300, 330);
+            }
+            100% {
+                -webkit-transform: matrix(0.7073, 0.7073, -0.7073, 0.7073, 300, 330);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="limb arms" id="leftHand"></div>
+    <div id="leftLeg" class="limb legs"></div>
+    <div id="head"></div>
+    <div id="body"></div>
+    <div id="rightLeg" class="limb legs"></div>
+    <div class="limb arms" id="rightHand"></div>
+</body>
+</html>
